@@ -52,6 +52,7 @@ read -ra DOCKER_RUN_OPTIONS <<< "${DOCKER_RUN_OPTIONS:-}"
     --env-file <(env | grep -v ${ENV_BLOCKLIST}) \
     -e IN_BUILD_CONTAINER=1 \
     -e TZ="${TIMEZONE:-$TZ}" \
+    -e PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/llvm/bin" \
     --mount "type=bind,source=${MOUNT_SOURCE},destination=/work" \
     --mount "type=volume,source=go,destination=/go" \
     --mount "type=volume,source=gocache,destination=/gocache" \
